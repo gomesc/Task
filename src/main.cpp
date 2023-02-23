@@ -1,4 +1,7 @@
 #include <iostream>
+#include <future>
+#include <string>
+
 using namespace std;
 
 template <typename T>
@@ -99,6 +102,13 @@ int Queue::Count()
 
 main()
 {
+
+	auto w = async(std::launch::async, Pop);
+	auto r = async(std::launch::async, Push);
+
+	r.wait();
+	w.wait();
+/*
 	int queue_size;
 	int imenu_choose;
 	int value_push;
@@ -131,7 +141,7 @@ main()
 				return 0;
 		}
 	}
-	
+	*/
 	return 0;	
 	
 }
